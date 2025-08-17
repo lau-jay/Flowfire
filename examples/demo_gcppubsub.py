@@ -1,23 +1,29 @@
-'''
+"""
 Copyright (C) 2018-2025 Bryant Moscon - bmoscon@gmail.com
 
 Please see the LICENSE file for the terms and conditions
 associated with this software.
-'''
+"""
+
 import os
 import asyncio
 
 import aiohttp
-from gcloud.aio.pubsub import subscribe, PublisherClient, SubscriberClient, SubscriberMessage
+from gcloud.aio.pubsub import (
+    subscribe,
+    PublisherClient,
+    SubscriberClient,
+    SubscriberMessage,
+)
 from yapic import json
 
-from cryptofeed import FeedHandler
-from cryptofeed.backends.gcppubsub import TradeGCPPubSub
-from cryptofeed.defines import TRADES
-from cryptofeed.exchanges import Coinbase
+from flowfire import FeedHandler
+from flowfire.backends.gcppubsub import TradeGCPPubSub
+from flowfire.defines import TRADES
+from flowfire.exchanges import Coinbase
 
 
-'''
+"""
 Try it with the Pub/Sub emulator
 --------------------------------
 1. Install the emulator
@@ -41,7 +47,7 @@ $ export GOOGLE_APPLICATION_CREDENTIALS='/path/key.json'
 3. Run the demo
 $ export GCP_PROJECT='<project_id>'; python examples/demo_gcppubsub.py
 
-'''
+"""
 
 
 async def message_callback(message: SubscriberMessage) -> None:
@@ -68,7 +74,9 @@ async def start_subscriber(topic):
     # On GCP, default seems fine.
     # For more options, check gcloud-aio docs:
     # https://github.com/talkiq/gcloud-aio/tree/master/pubsub
-    await subscribe(subscription_path, message_callback, client, ack_deadline_cache_timeout=300)
+    await subscribe(
+        subscription_path, message_callback, client, ack_deadline_cache_timeout=300
+    )
 
 
 def main():
@@ -77,7 +85,7 @@ def main():
     trades = TradeGCPPubSub()
     cbs = {TRADES: trades}
 
-    f.add_feed(Coinbase(channels=[TRADES], symbols=['BTC-USD'], callbacks=cbs))
+    f.add_feed(Coinbase(channels=[TRADES], symbols=["BTC-USD"], callbacks=cbs))
     f.run(start_loop=False)
 
     # Have the client run forever, pulling messages from subscription_path,
@@ -87,5 +95,5 @@ def main():
     loop.run_forever()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

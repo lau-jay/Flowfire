@@ -6,4 +6,4 @@ associated with this software.
 Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
 """
 
-from flowfire.feedhandler import FeedHandler
+from flowfire.feedhandler import FeedHandler  # pyright: ignore

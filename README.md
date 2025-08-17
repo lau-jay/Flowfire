@@ -127,7 +127,7 @@ flowfire supports the following channels from exchanges:
 
 ## Backends
 
-flowfire supports `backend` callbacks that will write directly to storage or other interfaces.
+Flowfire supports `backend` callbacks that will write directly to storage or other interfaces.
 
 Supported Backends:
 * Redis (Streams and Sorted Sets)
@@ -152,11 +152,11 @@ Supported Backends:
 
 flowfire can be installed from PyPi. (It's recommended that you install in a virtual environment of your choosing).
 
-    pip install flowfire
+    pip install Flowfire
 
 flowfire has optional dependencies, depending on the backends used. You can install them individually, or all at once. To install flowfire along with all its optional dependencies in one bundle:
 
-    pip install flowfire[all]
+    pip install Flowfire[all]
 
 If you wish to clone the repository and install from source, run this command from the root of the cloned repository.
 
@@ -172,6 +172,6 @@ See more discussion of package installation in [INSTALL.md](https://github.com/b
 
 ## Rest API
 
-flowfire supports some REST interfaces for retrieving real-time and historical data, as well as order placement and account management. These are integrated into the exchange classes directly. You can view the supported methods by calling the `info()` method on any exchange. The methods for interacting with the exchange RET endpoints exist in two flavors, the synchronous methods (suffixed with `_sync`) as well as the asynchronous which can be utilized with asyncio. For more information see the [documentation](docs/rest.md).
+Flowfire supports some REST interfaces for retrieving real-time and historical data, as well as order placement and account management. These are integrated into the exchange classes directly. You can view the supported methods by calling the `info()` method on any exchange. The methods for interacting with the exchange RET endpoints exist in two flavors, the synchronous methods (suffixed with `_sync`) as well as the asynchronous which can be utilized with asyncio. For more information see the [documentation](docs/rest.md).
 
 
