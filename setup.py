@@ -11,7 +11,6 @@ import sys
 
 from setuptools import Extension, setup
 from setuptools import find_packages
-from setuptools.command.test import test as TestCommand
 from Cython.Build import cythonize
 
 
@@ -25,14 +24,6 @@ def get_long_description():
         with open(path.join(repo_dir, filename), encoding="utf-8") as markdown_file:
             markdown.append(markdown_file.read())
     return "\n\n----\n\n".join(markdown)
-
-
-class Test(TestCommand):
-    def run_tests(self):
-        import pytest
-
-        errno = pytest.main(["tests/"])
-        sys.exit(errno)
 
 
 extra_compile_args = ["/O2" if os.name == "nt" else "-O3"]
@@ -108,7 +99,6 @@ setup(
     ],
     url="https://github.com/lau-jay/Flowfire",
     packages=find_packages(exclude=["tests*"]),
-    cmdclass={"test": Test},
     python_requires=">=3.9",
     classifiers=[
         "Intended Audience :: Developers",
@@ -120,7 +110,6 @@ setup(
         "Programming Language :: Python :: 3.12",
         "Framework :: AsyncIO",
     ],
-    tests_require=["pytest"],
     install_requires=[
         "requests>=2.18.4",
         "websockets>=14.1",

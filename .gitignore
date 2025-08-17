@@ -108,3 +108,4 @@ ENV/
 
 # PyCharm
 .idea/
+flowfire/types.c
