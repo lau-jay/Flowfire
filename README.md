@@ -75,10 +75,7 @@ fh.add_feed(Gemini(symbols=['BTC-USD', 'ETH-USD'], channels=[TRADES, L2_BOOK], c
 fh.run()
 ```
 
-Please see the [examples](https://github.com/bmoscon/flowfire/tree/master/examples) for more code samples and the [documentation](https://github.com/bmoscon/flowfire/blob/master/docs/README.md) for more information about the library usage.
-
-
-For an example of a containerized application using flowfire to store data to a backend, please see [Cryptostore](https://github.com/bmoscon/cryptostore).
+Please see the [examples](https://github.com/lau-jay/Flowfire/tree/master/examples) for more code samples and the [documentation](https://github.com/lau-jay/Flowfire/blob/master/docs/README.md) for more information about the library usage.
 
 
 ## National Best Bid/Offer (NBBO)

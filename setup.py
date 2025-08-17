@@ -43,7 +43,7 @@ extension = Extension(
 setup(
     name="Flowfire",
     ext_modules=cythonize([extension], language_level=3, force=True),
-    version="0.2.0",
+    version="0.2.1",
     author="Jay Lau",
     author_email="cappyclear@gmail.com",
     description="Crypto Exchange Data Feed Handler",

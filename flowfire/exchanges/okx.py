@@ -119,8 +119,12 @@ class OKX(Feed, OKXRestMixin):
                 websocket_channels[FUNDING],
                 websocket_channels[OPEN_INTEREST],
                 websocket_channels[LIQUIDATIONS],
-                websocket_channels[CANDLES],
             ),
+            options={"compression": None},
+        ),
+        WebsocketEndpoint(
+            "wss://ws.okx.com:8443/ws/v5/business",
+            channel_filter=(websocket_channels[CANDLES]),
             options={"compression": None},
         ),
         WebsocketEndpoint(
@@ -598,6 +602,15 @@ class OKX(Feed, OKXRestMixin):
             if chan == LIQUIDATIONS:
                 asyncio.create_task(self._liquidations(self.subscription[chan]))
                 continue
+
+            is_candle_channel = chan == self.websocket_channels["CANDLES"]
+
+            if is_candle_channel and "business" not in connection.address:
+                continue
+
+            if not is_candle_channel and "public" not in connection.address:
+                continue
+
             for pair in self.subscription[chan]:
                 channels.append(self.build_subscription(chan, pair))
 
