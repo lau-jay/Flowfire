@@ -1,5 +1,5 @@
-from cryptofeed.exchange import Exchange
-from cryptofeed.types import Funding
+from flowfire.exchange import Exchange
+from flowfire.types import Funding
 
 import datetime
 from decimal import Decimal

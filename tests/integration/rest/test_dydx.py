@@ -1,12 +1,14 @@
-'''
+"""
 Copyright (C) 2017-2025 Bryant Moscon - bmoscon@gmail.com
 
 Please see the LICENSE file for the terms and conditions
 associated with this software.
-'''
+Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
+"""
+
 import asyncio
-from cryptofeed.defines import ASK, BID
-from cryptofeed.exchanges import dYdX
+from flowfire.defines import ASK, BID
+from flowfire.exchanges import dYdX
 
 
 d = dYdX()
@@ -23,11 +25,11 @@ def teardown_module(module):
 class TestDYDXRest:
     def test_trade(self):
         ret = []
-        for data in d.trades_sync('BTC-USD-PERP'):
+        for data in d.trades_sync("BTC-USD-PERP"):
             ret.extend(data)
         assert len(ret) > 1
 
     def test_l2_book(self):
-        ret = d.l2_book_sync('BTC-USD-PERP')
+        ret = d.l2_book_sync("BTC-USD-PERP")
         assert len(ret.book[BID]) > 0
         assert len(ret.book[ASK]) > 0
