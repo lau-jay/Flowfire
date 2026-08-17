@@ -6,10 +6,11 @@ associated with this software.
 Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
 """
 
-from datetime import datetime as dt, timezone
+from datetime import datetime as dt
+from datetime import timezone
 from typing import Dict, Tuple, Union
 
-from flowfire.defines import FUTURES, FX, OPTION, PERPETUAL, SPOT, CALL, PUT, CURRENCY
+from flowfire.defines import CALL, CURRENCY, FUTURES, FX, OPTION, PERPETUAL, PUT, SPOT
 
 
 class Symbol:
@@ -121,7 +122,7 @@ class _Symbols:
         self.data = {}
 
     def load_all(self):
-        from cryptofeed.exchanges import EXCHANGE_MAP
+        from flowfire.exchanges import EXCHANGE_MAP
 
         for _, exchange in EXCHANGE_MAP.items():
             exchange.symbols(refresh=True)
