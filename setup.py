@@ -9,9 +9,8 @@ Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
 import os
 import sys
 
-from setuptools import Extension, setup
-from setuptools import find_packages
 from Cython.Build import cythonize
+from setuptools import Extension, find_packages, setup
 
 
 def get_long_description():
@@ -30,7 +29,7 @@ extra_compile_args = ["/O2" if os.name == "nt" else "-O3"]
 define_macros = []
 
 # comment out line to compile with type check assertions
-# verify value at runtime with cryptofeed.types.COMPILED_WITH_ASSERTIONS
+# verify value at runtime with flowfire.types.COMPILED_WITH_ASSERTIONS
 define_macros.append(("CYTHON_WITHOUT_ASSERTIONS", None))
 
 extension = Extension(

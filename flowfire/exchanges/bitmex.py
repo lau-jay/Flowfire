@@ -6,7 +6,6 @@ associated with this software.
 Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
 """
 
-from typing import Dict, Tuple
 import hashlib
 import hmac
 import logging
@@ -14,12 +13,14 @@ import time
 from collections import defaultdict
 from datetime import timedelta
 from decimal import Decimal
+from typing import Dict, Tuple
 
 from yapic import json
 
+from flowfire.connection import AsyncConnection, RestEndpoint, Routes, WebsocketEndpoint
 from flowfire.defines import (
-    BID,
     ASK,
+    BID,
     BITMEX,
     BUY,
     CANCELLED,
@@ -40,18 +41,17 @@ from flowfire.defines import (
     TRADES,
     UNFILLED,
 )
+from flowfire.exchanges.mixins.bitmex_rest import BitmexRestMixin
 from flowfire.feed import Feed
 from flowfire.symbols import Symbol
-from flowfire.connection import AsyncConnection, RestEndpoint, Routes, WebsocketEndpoint
-from flowfire.exchanges.mixins.bitmex_rest import BitmexRestMixin
 from flowfire.types import (
-    OrderBook,
-    Trade,
-    Ticker,
     Funding,
-    OrderInfo,
-    OpenInterest,
     Liquidation,
+    OpenInterest,
+    OrderBook,
+    OrderInfo,
+    Ticker,
+    Trade,
 )
 
 LOG = logging.getLogger("feedhandler")
@@ -426,7 +426,7 @@ class Bitmex(Feed, BitmexRestMixin):
         # PERF perf_start(self.id, 'book_msg')
 
         if not msg["data"]:
-            # see https://github.com/bmoscon/cryptofeed/issues/688
+            # see https://github.com/bmoscon/flowfire/issues/688
             # msg['data'] can be an empty list
             return
 

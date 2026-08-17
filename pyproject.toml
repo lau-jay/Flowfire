@@ -3,17 +3,17 @@
 #
 # isort v4
 #
-#     isort --jobs 8 --recursive ./cryptofeed
+#     isort --jobs 8 --recursive ./flowfire
 #
 # isort v5 does not required option --recursive
 #
-#     isort --jobs 8 ./cryptofeed
+#     isort --jobs 8 ./flowfire
 #
 # After, you may inverse "ASK, BID" ->  "BID, ASK" using:
 #
 #     find * -name '*.py' -exec sed 's/import ASK, BID/import BID, ASK/' -i {} +
 #
-known_first_party = "cryptofeed"
+known_first_party = "flowfire"
 line_length = 130
 py_version = 37
 atomic = true
