@@ -6,16 +6,16 @@ associated with this software.
 Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
 """
 
+import ast
 import asyncio
 import atexit
-from collections import defaultdict
 import functools
-import ast
+from collections import defaultdict
 
-from yapic import json
 from aiofile import AIOFile
+from yapic import json
 
-from flowfire.defines import HUOBI, UPBIT, OKX, OKCOIN
+from flowfire.defines import HUOBI, OKCOIN, OKX, UPBIT
 from flowfire.exchanges import EXCHANGE_MAP
 
 
@@ -80,7 +80,7 @@ async def _playback(feed: str, filenames: list, callbacks: dict, config: str):
         ret = symbol_data.pop(0)
         return ret
 
-    from cryptofeed.connection import HTTPAsyncConn, HTTPSync
+    from flowfire.connection import HTTPAsyncConn, HTTPSync
 
     http_async_conn_read = HTTPAsyncConn.read
     http_sync_read = HTTPSync.read
