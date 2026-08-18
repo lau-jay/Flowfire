@@ -10,4 +10,4 @@ jobs:
       - name: Check out source repository
         uses: actions/checkout@v3
       - name: ruff Lint
-        uses: astral-sh/ruff-action@v4
+        uses: astral-sh/ruff-action
