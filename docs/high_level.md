@@ -52,7 +52,7 @@ The supported data channels are:
 * FUNDING - Exchange specific funding data / updates
 
 
-For spot markets, trading symbols follow the following scheme BASE-QUOTE. As an example, Bitcoin denominated by US Dollars would be BTC-USD. Many exchanges do not internally use this format, but cryptofeed handles trading symbol normalization and all symbols should be subscribed to in this format and will be reported in this format. For futures markets, symbols follow the BASE-QUOTE-EXPIRY format. The expiry is comprised of the last 2 digits of the year, followed by the month code, followed by the day. As an example a BTC-USDT contract with an expiry date of Jan 14, 2021 would be BTC-USDT-21F14. Perpetual contracts, are listed as BASE-QUOTE-PERP. Options follow a scheme similar to futures contracts, except the name includes the strike price as well as if the option is put or a call: BASE-QUOTE-STRIKE-EXPIRY-TYPE.
+For spot markets, trading symbols follow the following scheme BASE-QUOTE. As an example, Bitcoin denominated by US Dollars would be BTC-USD. Many exchanges do not internally use this format, but flowfire handles trading symbol normalization and all symbols should be subscribed to in this format and will be reported in this format. For futures markets, symbols follow the BASE-QUOTE-EXPIRY format. The expiry is comprised of the last 2 digits of the year, followed by the month code, followed by the day. As an example a BTC-USDT contract with an expiry date of Jan 14, 2021 would be BTC-USDT-21F14. Perpetual contracts, are listed as BASE-QUOTE-PERP. Options follow a scheme similar to futures contracts, except the name includes the strike price as well as if the option is put or a call: BASE-QUOTE-STRIKE-EXPIRY-TYPE.
 
 If you use `channels` and `symbols` you cannot use `subscription`, likewise if `subscription` is supplied you cannot use `channels` and `symbols`. `subscription` is supplied in a dictionary format, in the following manner: {CHANNEL: [symbols], ... }. As an example:
 
@@ -66,12 +66,12 @@ Flowfire normalizes various parts of the data - primarily timestamps and symbols
 
 ### Callbacks
 
-Callbacks are user defined functions that will be called on a data event, like when a trade update is received. All callbacks have the same signature: two positional arguments, a data object and the receipt timestamp. The data object will vary based on the type of callback (i.e. a trade callback will have a Trade object, the ticker callback will have a Ticker object, etc). The receipt timestamp is the timestamp that the message was received by cryptofeed.
+Callbacks are user defined functions that will be called on a data event, like when a trade update is received. All callbacks have the same signature: two positional arguments, a data object and the receipt timestamp. The data object will vary based on the type of callback (i.e. a trade callback will have a Trade object, the ticker callback will have a Ticker object, etc). The receipt timestamp is the timestamp that the message was received by flowfire.
 
 
 ### Data Types
 
-The data types that are returned by callbacks are defined in [types.pyx](../cryptofeed/types.pyx). The data members are all readable, but not writeable. Every data type has a field, `raw` that contains the raw data that was used to construct the object. It will frequently have fields that are not part of the data type. These may or may not be useful to you, depending on your usecase. Every object also provides two methods, `to_dict()` and a `__repr__`. `to_dict()` returns the data in the object as a dictionary (omitting the raw data). `__repr__`  allows the class to be printed out in a useful format.
+The data types that are returned by callbacks are defined in [types.pyx](../flowfire/types.pyx). The data members are all readable, but not writeable. Every data type has a field, `raw` that contains the raw data that was used to construct the object. It will frequently have fields that are not part of the data type. These may or may not be useful to you, depending on your usecase. Every object also provides two methods, `to_dict()` and a `__repr__`. `to_dict()` returns the data in the object as a dictionary (omitting the raw data). `__repr__`  allows the class to be printed out in a useful format.
 
 ### Backends
 
@@ -83,9 +83,9 @@ Backends are supplied callbacks that do specific things, like write updates to a
 Setting up a simple feedhandler. Subscribing to Coinbase
 
 ```python
-from cryptofeed import FeedHandler
-from cryptofeed.exchanges import Coinbase
-from cryptofeed.defines import TRADES, TICKER
+from flowfire import FeedHandler
+from flowfire.exchanges import Coinbase
+from flowfire.defines import TRADES, TICKER
 
 
 async def ticker(t, receipt_timestamp):

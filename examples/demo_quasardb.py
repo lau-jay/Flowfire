@@ -1,6 +1,6 @@
-from cryptofeed import FeedHandler
-from cryptofeed.exchanges import *
-from cryptofeed.backends.quasardb import *
+from flowfire import FeedHandler
+from flowfire.backends.quasardb import *
+from flowfire.exchanges import *
 
 
 async def feed_info(data, receipt_timestamp):

@@ -15,7 +15,7 @@ The configuration will be automatically passed to exchange objects that the feed
 
 ### Settings
 
-The following are valid settings for the configuration of Cryptofeed.
+The following are valid settings for the configuration of flowfire.
 
 
 * log

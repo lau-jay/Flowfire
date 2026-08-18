@@ -8,7 +8,7 @@ __pycache__/
 
 # C extensions
 *.so
-cryptofeed/types.c
+flowfire/types.c
 
 # Distribution / packaging
 .Python

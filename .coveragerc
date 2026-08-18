@@ -1,7 +1,7 @@
 [run]
 command_line = -m pytest
 branch = True
-source = cryptofeed
-omit = 
+source = flowfire
+omit =
     *__init__.py
-    cryptofeed/util/perf.py
+    flowfire/util/perf.py

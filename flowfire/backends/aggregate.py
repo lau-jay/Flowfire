@@ -157,7 +157,7 @@ class CustomAggregate(AggregateCallback):
     def __init__(self, *args, window=30, aggregator=None, init=None, **kwargs):
         """
         aggregator is a function pointer to the aggregator function. The aggregator will be called with
-        a dictionary of internal state (the aggregator will define it), and the data from the cryptofeed callback (trade, book, etc).
+        a dictionary of internal state (the aggregator will define it), and the data from the flowfire callback (trade, book, etc).
         init is a function pointer that will be called at the start of each time window, with the internal state.
         This can be used to clear the internal state or
         do other appropriate work (if any).

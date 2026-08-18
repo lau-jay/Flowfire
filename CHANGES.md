@@ -314,7 +314,7 @@
   * Feature: Clean up internal class attributes in Feed class
   * Feature: Add graceful stop and shutdown methods for Feeds
   * Feature: Add ledger endpoint to Kraken Rest module, add ability to optionally filter by symbol, or all symbols, for historical trades
-  * Docs: Update documentation regarding adding a new exchange to cryptofeed
+  * Docs: Update documentation regarding adding a new exchange to flowfire
   * Bugfix: Reset delay after connection is successful
   * Feature: yapic.json parses strings to datetimes automatically, no longer need to rely on Pandas for datetime parsing
   * Bugfix: #491 - dictionary resized during iteration in ByBit
@@ -411,7 +411,7 @@
   * Feature: Allow configuring the API KEY ID from Config or from environment variable
   * Bugfix: Collisions in normalized CoinGecko symbols (this adds about 700 new symbols)
   * Feature: Add candles function to coinbase
-  * Feature: Explain when Cryptofeed crashes during pairs retrieval
+  * Feature: Explain when flowfire crashes during pairs retrieval
   * Bugfix: BINANCE_DELIVERY Ticker use msg_type='bookTicker' as for the other BINANCE markets
   * Feature: Support Bitmex authentication using personal API key and secret
   * Feature: Print the origin of the configuration (filename, dict) for better developer experience
@@ -463,7 +463,7 @@
 ### 1.6.1 (2020-11-12)
   * Feature: New kwarg for exchange feed - `snapshot_interval` - used to control number of snapshot updates sent to client
   * Feature: Support for rabbitmq message routing
-  * Feature: Support for raw file playback. Will be useful for testing features and building out new test suites for cryptofeed.
+  * Feature: Support for raw file playback. Will be useful for testing features and building out new test suites for flowfire.
   * Feature: Arctic library quota can be configured, new default is unlimited
   * Feature: New exchange: Probit
   * Bugfix: Correctly store receipt timestamp in mongo backend
@@ -527,7 +527,7 @@
 ### 1.3.1 (2020-03-17)
   * Feature: Add missing update detection to orderbooks in Binance
   * Feature: REST support for FTX
-  * Feature: Added new field, receipt timestamp, to all callbacks. This contains the time the message was received by cryptofeed.
+  * Feature: Added new field, receipt timestamp, to all callbacks. This contains the time the message was received by flowfire.
   * Feature: Upbit Exchange Support
 
 ### 1.3.0 (2020-02-11)

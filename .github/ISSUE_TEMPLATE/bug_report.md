@@ -24,5 +24,5 @@ If applicable, add screenshots to help explain your problem.
 **Operating System:**
  - macOS, linux, etc
 
-**Cryptofeed Version**
+**flowfire Version**
 - please list the version you are using, and how it was installed (from source, pypi, etc).
