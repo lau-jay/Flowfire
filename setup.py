@@ -7,7 +7,6 @@ Copyright (C) 2025 Jay Lau - cappyclear@gmail.com
 """
 
 import os
-import sys
 
 from Cython.Build import cythonize
 from setuptools import Extension, find_packages, setup
