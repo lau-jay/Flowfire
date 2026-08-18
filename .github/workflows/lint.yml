@@ -1,4 +1,4 @@
-name:ruff Lint
+name: ruff Lint
 
 on: [push, pull_request]
 
