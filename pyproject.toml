@@ -25,6 +25,17 @@ skip_gitignore = true
 lines_after_imports = 2
 ensure_newline_before_comments = true
 
+[tool.ruff]
+line-length = 130
+extend-exclude = ["tests", "docs", "build", "__init__.py"]
+select = ["E", "W", "F"]
+ignore = ["E501", "F405", "F403"]
 
 [build-system]
 requires = ["setuptools", "wheel", "Cython"]
+
+[dependency-groups]
+dev = [
+    "isort>=8.0.1",
+    "ruff>=0.16.3",
+]
