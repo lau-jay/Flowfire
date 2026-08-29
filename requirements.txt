@@ -8,4 +8,4 @@ pyyaml
 requests>=2.18.4
 uvloop
 websockets>=14.1
-yapic.json>=1.6.3
+yapic.json>=1.9.5
